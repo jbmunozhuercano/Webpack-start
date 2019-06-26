@@ -4,6 +4,8 @@ const webpackMerge = require('webpack-merge');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 const modeConfig = env => require(`./config/webpack.${env}`)(env);
 
 module.exports = ({mode} = {mode: 'production'}) => {
@@ -13,8 +15,21 @@ module.exports = ({mode} = {mode: 'production'}) => {
             main: './src/js/main.js'
         },
         mode,
+        resolve: {
+            alias: {
+              'vue$': 'vue/dist/vue.esm.js' // Solves the error 'You are using the runtime-only build of Vue'
+            }
+        },
         module: {
             rules: [
+                {
+                    test: /\.css$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',                      
+                        'vue-style-loader'
+                    ]
+                },
                 {
                     test: /\.scss$/,
                     use: [
@@ -51,7 +66,13 @@ module.exports = ({mode} = {mode: 'production'}) => {
                             }
                         }
                     ]
-                }
+                },
+                {
+                    test: /\.vue$/,
+                    use: {
+                        loader: 'vue-loader'
+                    }
+                }     
             ]
         },
         plugins: [
@@ -60,7 +81,8 @@ module.exports = ({mode} = {mode: 'production'}) => {
             }),
             new MiniCssExtractPlugin({
                 filename: 'css/style.[contenthash].css'
-            })
+            }),
+            new VueLoaderPlugin()
         ]
     },
     modeConfig(mode)
