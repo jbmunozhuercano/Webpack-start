@@ -17,9 +17,9 @@ npm run dev
 npm run prod
 ```
 
-### GNU/Linux systems automatic reload
+### GNU/Linux systems live reloading
 
-In order to work the auto reload in some GNU/Linux systems do the following:
+In order to work the live reloading in some GNU/Linux systems do the following:
 
 1. Add next line to either `/etc/systctl.conf` file or a new *.conf file under `/etc/sysctl.d/` directory:
 ```
