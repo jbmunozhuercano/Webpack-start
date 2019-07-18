@@ -7,8 +7,10 @@ module.exports = () => ({
         publicPath: ''
     },
     devServer: {
-        contentBase: 'dist',
+        contentBase: '../src',
+	    historyApiFallback: true,
         overlay: true, // Shows error overlay
+        inline: true,
         port: 3000
     },
     module: {
