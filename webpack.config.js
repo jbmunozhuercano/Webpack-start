@@ -20,14 +20,15 @@ module.exports = ({mode} = {mode: 'production'}) => {
               'vue$': 'vue/dist/vue.esm.js' // Solves the error 'You are using the runtime-only build of Vue'
             }
         },
+        extensions: ['*', '.js', '.vue', '.json'],
         module: {
             rules: [
                 {
                     test: /\.css$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader',                      
                         'vue-style-loader'
+                        'css-loader'                        
                     ]
                 },
                 {
