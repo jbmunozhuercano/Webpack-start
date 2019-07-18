@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
-    "dev": "npm run webpack-dev-server -- --env.mode development --hot",
+    "dev": "npm run webpack-dev-server -- --env.mode development --open",
     "prod": "npm run webpack -- --env.mode production"
   },
   "keywords": [],
