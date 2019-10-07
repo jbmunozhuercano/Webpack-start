@@ -18,9 +18,9 @@ module.exports = ({mode} = {mode: 'production'}) => {
         resolve: {
             alias: {
               'vue$': 'vue/dist/vue.esm.js' // Solves the error 'You are using the runtime-only build of Vue'
-            }
+            },
+             extensions: ['*', '.js', '.vue', '.json']
         },
-        extensions: ['*', '.js', '.vue', '.json'],
         module: {
             rules: [
                 {
