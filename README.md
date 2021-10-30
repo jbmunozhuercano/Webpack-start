@@ -1,31 +1,24 @@
 # Webpack-start
 
-Webpack initial configuration with babel and sass.
+Webpack 5 initial configuration with babel and sass.
 
 ## Steps
-* Clone or download repo.
-* Install dependencies:
+
+- Clone or download repo.
+- Install dependencies:
+
 ```
-npm install
-```
-* For development mode use:
-```
-npm run dev
-```
-* For production mode use:
-```
-npm run prod
+npm install or yarn
 ```
 
-### GNU/Linux systems live reloading
+- For development mode use:
 
-In order to work the live reloading in some GNU/Linux systems do the following:
+```
+npm run dev or yarn dev
+```
 
-1. Add next line to either `/etc/systctl.conf` file or a new *.conf file under `/etc/sysctl.d/` directory:
+- For production mode use:
+
 ```
-fs.inotify.max_user_watches = 524288
-```
-2. Then, run this command to apply the change:
-```
-sudo sysctl -p --system
+npm run build or yarn build
 ```
